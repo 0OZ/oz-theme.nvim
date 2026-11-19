@@ -3,6 +3,8 @@
 A vibrant dark Neovim colorscheme on a near-black background (`#050505`).
 Written in Lua, tree-sitter first, no dependencies.
 
+![oz-theme on TypeScript and Rust: role colors, soft search, reference and diagnostic backgrounds, a Visual selection and the cursor line](assets/screenshot.png)
+
 ## Install
 
 [lazy.nvim](https://github.com/folke/lazy.nvim):
@@ -63,6 +65,19 @@ vim.api.nvim_set_hl(0, "CursorLine", { bg = "#101216" })
 ```sh
 nvim --clean --headless --cmd "set rtp+=." -l tests/smoke.lua
 ```
+
+Regenerate the screenshot after a palette change:
+
+```sh
+scripts/screenshot/run.sh
+```
+
+It opens `scripts/screenshot/samples/` in a seeded nvim session (two splits, a
+search, reference highlights, diagnostics, a Visual selection) inside a detached
+tmux pane, renders the captured screen to HTML and shoots it with headless Chrome.
+Needs `tmux`, `python3`, Google Chrome (or `CHROME=/path/to/chrome`) and
+nvim-treesitter parsers for TypeScript and Rust. The font is JetBrains Mono Nerd
+Font when installed, `monospace` otherwise.
 
 ## License
 
